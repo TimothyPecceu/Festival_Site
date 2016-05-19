@@ -1,0 +1,15 @@
+@import 'bootstrap.css';
+
+@font-face{
+    font-family: "loungy";
+    src: url(../fonts/Loungy.TTF) format("truetype");
+}
+
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo{
+    font-family: "loungy";
+}
