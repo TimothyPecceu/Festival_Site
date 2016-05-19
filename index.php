@@ -8,16 +8,7 @@
         ?>
         <h1>Nieuws</h1>
         <?php
-            $mysqli = new mysqli("localhost", "root", "root", "rockabilly");
-            
-            if($mysqli->connect_error){
-                die('Connect Error (' . $mysqli->connect_errno . ')'
-                        . $mysqli->connect_error);
-            }
-            
-            $result = $mysqli->query("SELECT * FROM news ORDER BY date DESC");
-            
-            $mysqli->close();
+            $result = DatabaseConnector::selectFromTableOrderBy("news", "date", "DESC");
             
             if($result->num_rows > 0){
                 while($newsItem = $result->fetch_object()){
