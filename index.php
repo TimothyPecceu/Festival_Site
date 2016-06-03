@@ -12,8 +12,11 @@
             
             if($result->num_rows > 0){
                 while($newsItem = $result->fetch_object()){
-                    echo "<h2> $newsItem->title </h2>";
-                    echo "<p> $newsItem->text </p>";
+        ?>
+                    <h2><?php echo $newsItem->title; ?></h2>
+                    <p> <?php echo $newsItem->text; ?></p>
+                    <p> <?php echo $newsItem->date; ?></p>
+        <?php
                 }
             }
         ?>

@@ -1,12 +1,12 @@
 <?php
     class DatabaseConnector{
-        private $host = "localhost";
-        private $user = "root";
-        private $pass = "root";
-        private $db = "rockabilly";
+        const HOST = "localhost";
+        const USER = "root";
+        const PASS = "root";
+        const DB = "rockabilly";
             
         private function connect(){
-            $connection = new mysqli($host, $user, $pass, $db);
+            $connection = new mysqli(self::HOST, self::USER, self::PASS, self::DB);
             
             if($connection->connect_error){
                 die('Connect Error (' . $connection->connect_errno . ')'
@@ -16,8 +16,15 @@
         }    
         
         static function selectFromTableOrderBy($table,$field,$order){
-            $connection = $this->connect();
+            $connection = self::connect();
             $result = $connection->query("SELECT * FROM ". $table ." ORDER BY ". $field ." ".$order);
+            $connection->close();
+            return $result;
+        }
+        
+        static function selectFromTable($table){
+            $connection = self::connect();
+            $result = $connection->query("SELECT * FROM ". $table);
             $connection->close();
             return $result;
         }
