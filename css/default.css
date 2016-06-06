@@ -2,7 +2,7 @@
 
 @font-face{
     font-family: "loungy";
-    src: url(../fonts/Loungy.TTF) format("truetype");
+    src: url(../fonts/.TTF) format("truetype");
 }
 
 body{
@@ -11,5 +11,5 @@ body{
 }
 
 .logo{
-    font-family: "loungy";
+    font-family: sans-serif;
 }

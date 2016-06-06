@@ -8,17 +8,17 @@
         ?>
         <h1>Line-up</h1>
         <?php
-            $result=  DatabaseConnector::selectFromTable("lineup");
+            $result=  DatabaseConnector::select("lineup");
             
             if($result->num_rows > 0){
                 ?>
         <h2> Zaterdag </h2>
                 <?php
                 while($performance = $result->fetch_object()){
-                    if($performance->day = "saturday"){
+                    if($performance->day == "saturday"){
                         ?><p> 
                             <?php echo $performance->hour;?>   
-                            <a href='./artists/'<?php echo $performance->artist;?>>
+                            <a href='./artistDetail.php?id=<?php echo $performance->artistId;?>'>
                             <?php echo $performance->artist; ?>
                             </a></p>
                         <?php
